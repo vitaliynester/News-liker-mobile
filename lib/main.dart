@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import './pages/HomePage.dart';
+import './providers/AppProvider.dart';
+import './providers/NewsProvider.dart';
 
 void main() {
   runApp(MyApp());
@@ -7,58 +12,25 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "Новости Липецкой области",
-      theme: ThemeData(
-        primaryColor: Colors.white,
-        backgroundColor: Colors.white,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        appBarTheme: AppBarTheme(
-          brightness: Brightness.light,
-          color: Colors.white,
-          elevation: 0,
-        ),
-      ),
-      home: HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Новости Липецкой области",
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => AppProvider()),
+        ChangeNotifierProvider(create: (_) => NewsProvider()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: "Новости Липецкой области",
+        theme: ThemeData(
+          primaryColor: Colors.white,
+          backgroundColor: Colors.white,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          appBarTheme: AppBarTheme(
+            brightness: Brightness.light,
+            color: Colors.white,
+            elevation: 0,
           ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.green,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Новости",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.info),
-            label: "Информация",
-          ),
-        ],
-      ),
-      body: Center(
-        child: Text("TEST"),
+        home: HomePage(),
       ),
     );
   }
