@@ -21,7 +21,7 @@ class NewsDetailModel {
   }
 
   Map<String, dynamic> toJson() {
-    var json = {};
+    var json = new Map<String, dynamic>();
     json['id'] = id;
     json['created_at'] = createdAt;
     json['title'] = title;
