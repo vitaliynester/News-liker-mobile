@@ -1,5 +1,3 @@
-import 'dart:convert' as c;
-
 import 'package:flutter/material.dart';
 
 class NewsDetailModel {
@@ -38,7 +36,7 @@ class NewsDetailModel {
     json['title'] = title;
     json['content'] = content;
     json['adt'] = adt;
-    json['files'] = c.jsonEncode(images);
+    json['files'] = images;
     return json;
   }
 }
