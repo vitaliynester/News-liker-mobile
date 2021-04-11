@@ -1,5 +1,7 @@
 import 'dart:convert' as c;
 
+import 'package:flutter/material.dart';
+
 class NewsDetailModel {
   int id;
   String createdAt;
@@ -7,6 +9,15 @@ class NewsDetailModel {
   String content;
   String adt;
   List<String> images;
+
+  NewsDetailModel({
+    @required this.id,
+    @required this.createdAt,
+    @required this.title,
+    @required this.content,
+    @required this.adt,
+    @required this.images,
+  });
 
   NewsDetailModel.fromJson(Map<String, dynamic> json) {
     images = [];
