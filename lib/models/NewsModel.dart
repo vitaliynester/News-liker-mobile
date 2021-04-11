@@ -1,8 +1,17 @@
+import 'package:flutter/material.dart';
+
 class NewsModel {
   int id;
   String title;
   String createdAt;
   String adt;
+
+  NewsModel({
+    @required this.id,
+    @required this.title,
+    @required this.createdAt,
+    @required this.adt,
+  });
 
   NewsModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
