@@ -66,8 +66,6 @@ void main() {
   });
 
   test('При получении детальной информации сервер не дал ответа', () async {
-    // Arrange
-    // when(provider.getDetailModel()).thenAnswer((realInvocation) => null);
     // Assert
     expect(await provider.getDetailModel(), null);
   });
